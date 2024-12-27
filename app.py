@@ -101,7 +101,11 @@ with tab1:
 
     # Display data types
     st.subheader("Data Types")
-    st.write(data.dtypes)
+    dtypes_df = pd.DataFrame({
+    "Features": data.dtypes.index,
+    "Data Type": data.dtypes.values
+    })
+
 
     st.subheader("Correlation Heatmap")
     fig, ax = plt.subplots(figsize=(10, 6))
