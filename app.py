@@ -145,7 +145,7 @@ with tab2:
     st.write("### Model Performance")
     st.write(f"**Mean Absolute Error (MAE)**: {mae:.2f}")
     st.write(f"**Root Mean Squared Error (RMSE)**: {rmse:.2f}")
-    st.write(f"Model Accuracy: {(model_score *100):.2f}")
+    st.write(f"**Model Accuracy**: {(model_score *100):.2f}%")
  
      # Feature Importance
     st.subheader("Feature Importance")
@@ -154,7 +154,8 @@ with tab2:
     importance_df = pd.DataFrame({"Feature": features, "Importance": feature_importances}).sort_values(by="Importance", ascending=False)
     
     fig, ax = plt.subplots(figsize=(8, 5))
-    sns.barplot(x="Importance", y="Feature", data=importance_df, palette="viridis", ax=ax)
+    sns.barplot(x="Importance", y="Feature", data=importance_df, palette="viridis")
+    ax.set_ylabel('')
     st.pyplot(fig)
 
     # Predicted vs Actual Plot
@@ -264,4 +265,17 @@ with tab3:
     
         
         st.write(f"Predicted Price: €{prediction[0]:,.2f}")
+        
+        st.write('Merry Laptop Shopping!')
+        import streamlit as st
+
+
+
+    st.markdown(
+        """
+        **Thank you for visiting!**  
+        🌟 *Merry Laptop Shopping* 🌟  
+        👉 [Connect on LinkedIn](https://www.linkedin.com/in/amira-el-garem-%F0%9F%87%B5%F0%9F%87%B8-aa7154138/)
+        """
+    )
 
