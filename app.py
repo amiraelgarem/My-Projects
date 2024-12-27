@@ -84,7 +84,7 @@ with tab1:
 
     # Display dataset shape
     st.write("Shape of the dataset:", data.shape)
-    
+
     st.write("Here is a snapshot of the dataset:")
     st.dataframe(data.head())
 
@@ -145,7 +145,7 @@ with tab2:
     st.write("### Model Performance")
     st.write(f"**Mean Absolute Error (MAE)**: {mae:.2f}")
     st.write(f"**Root Mean Squared Error (RMSE)**: {rmse:.2f}")
-    st.write(f"Model Accuracy: ${model_score:.2f}")
+    st.write(f"Model Accuracy: {(model_score *100):.2f}")
  
      # Feature Importance
     st.subheader("Feature Importance")
@@ -263,12 +263,5 @@ with tab3:
     
     
         
-        st.write(f"Predicted Price: ${prediction[0]:,.2f}")
-
-
-
-# In[ ]:
-
-
-
+        st.write(f"Predicted Price: €{prediction[0]:,.2f}")
 
