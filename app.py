@@ -138,6 +138,8 @@ with tab2:
     st.header("Randomforest Model Insights")
     loaded_model = pickle.load(open("random_forst_model_laptopprices.pkl", "rb"))
     data = pd.read_csv('transformed_laptop_prices_dataset.csv')
+    if "Unnamed: 0" in data.columns:
+        data = data.drop(columns=["Unnamed: 0"])
     X = data.drop(['Price (Euro)'], axis=1)
     y = data['Price (Euro)']
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
