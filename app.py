@@ -106,6 +106,7 @@ with tab1:
     "Data Type": data.dtypes.values
     })
 
+    st.write(dtypes_df)
 
     st.subheader("Correlation Heatmap")
     fig, ax = plt.subplots(figsize=(10, 6))
