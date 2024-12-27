@@ -91,11 +91,13 @@ with tab1:
      # Check for null values
     st.subheader("Null Values Check")
     null_values = data.isnull().sum()
-    st.write("Number of null values in each column:")
-    st.write(null_values[null_values > 0])
-    
     if null_values.sum() == 0:
         st.write("No null values found in the dataset.")
+    else:
+        st.write("Number of null values in each column:")
+        st.write(null_values[null_values > 0])
+    
+
 
     # Display data types
     st.subheader("Data Types")
@@ -150,7 +152,7 @@ with tab2:
      # Feature Importance
     st.subheader("Feature Importance")
     feature_importances = loaded_model.feature_importances_
-    features = X.columns
+    features = list(X.columns)
     importance_df = pd.DataFrame({"Feature": features, "Importance": feature_importances}).sort_values(by="Importance", ascending=False)
     
     fig, ax = plt.subplots(figsize=(8, 5))
@@ -264,10 +266,9 @@ with tab3:
     
     
         
-        st.write(f"Predicted Price: €{prediction[0]:,.2f}")
+        st.write(f"Predicted Laptop Price: €{prediction[0]:,.2f}")
         
-        st.write('Merry Laptop Shopping!')
-        import streamlit as st
+
 
 
 
